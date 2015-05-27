@@ -5,8 +5,9 @@
  * @license   GPL-2.0+
  * @link      http://themeavenue.net
  * @copyright 2014 ThemeAvenue
+ * 
+ * @boilerplate-version   0.1.1
  *
- * @wordpress-plugin
  * Plugin Name:       Awesome Support: Boilerplate
  * Plugin URI:        http://getawesomesupport.com/addons/?utm_source=internal&utm_medium=plugin_meta&utm_campaign=Addons_Boilerplate
  * Description:       A boilerplate for creating add-ons for Awesome Support.
