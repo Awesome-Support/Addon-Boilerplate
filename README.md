@@ -12,4 +12,4 @@ There is nothing much needed. Just rename the class and change the addon name. H
 - `AS_Boilerplate_Loader::slug` (should be your addon name sanitized)
 - `$plugin_name` in the `addon_license` method
 
-You code should be placed in the `load` method. The easiest approach is to have all your code in a separate file and include this file from the `load` method.
+Your code should be placed in the `load` method. The easiest approach is to have all your code in a separate file and include this file from the `load` method.
