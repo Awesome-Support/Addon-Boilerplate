@@ -425,6 +425,13 @@ class AS_Boilerplate_Loader {
 
 		$license   = wpas_get_option( "license_{$this->slug}", '' );
 
+		/**
+		 * Do not show the notice if the license key has already been entered.
+		 */
+		if ( ! empty( $license ) ) {
+			return false;
+		}
+
 		/* Prepare the dismiss URL */
 		$args                 = $_GET;
 		$args['wpas-dismiss'] = 'license_' . $this->slug;
