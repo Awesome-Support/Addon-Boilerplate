@@ -388,6 +388,7 @@ class AS_Boilerplate_Loader {
 	public function addon_license( $licenses ) {
 
 		$plugin_name = $this->plugin_data( 'Name' );
+		$plugin_name = trim( str_replace( 'Awesome Support:', '', $plugin_name ) ); // Remove the Awesome Support prefix from the addon name
 
 		$licenses[] = array(
 			'name'      => $plugin_name,
