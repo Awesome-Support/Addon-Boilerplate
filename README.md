@@ -12,4 +12,8 @@ There is nothing much needed. Just rename the class and change the addon name. H
 - `AS_Boilerplate_Loader::slug` (should be your addon name sanitized)
 - `$plugin_name` in the `addon_license` method
 
+## Usage
+
 Your code should be placed in the `load` method. The easiest approach is to have all your code in a separate file and include this file from the `load` method.
+
+**Be aware**, the addons are loaded by Awesome Support on the `plugins_loaded` hook with priority `20`. This means that when hooking within the `load` method, you **MUST** hook on `plugins_loaded` with priority `21` or later.
