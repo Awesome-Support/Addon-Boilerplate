@@ -338,7 +338,7 @@ class AS_Boilerplate_Loader {
 	public function display_error() {
 
 		if ( ! is_a( $this->error, 'WP_Error' ) ) {
-			return false;
+			return;
 		}
 
 		$message = $this->error->get_error_messages(); ?>
@@ -361,7 +361,7 @@ class AS_Boilerplate_Loader {
 				?>
 			</p>
 		</div>
-		<?php
+	<?php
 
 	}
 
@@ -408,6 +408,7 @@ class AS_Boilerplate_Loader {
 	 * Display notice if user didn't set his Envato license code
 	 *
 	 * @since 0.1.0
+	 * @return void
 	 */
 	public function license_notice() {
 
@@ -415,14 +416,14 @@ class AS_Boilerplate_Loader {
 		 * We only want to display the notice to the site admin.
 		 */
 		if ( ! current_user_can( 'administrator' ) ) {
-			return false;
+			return;
 		}
 
 		/**
 		 * If the notice has already been dismissed we don't display it again.
 		 */
 		if ( wpas_is_notice_dismissed( "license_{$this->slug}" ) ) {
-			return false;
+			return;
 		}
 
 		$license   = wpas_get_option( "license_{$this->slug}", '' );
@@ -431,7 +432,7 @@ class AS_Boilerplate_Loader {
 		 * Do not show the notice if the license key has already been entered.
 		 */
 		if ( ! empty( $license ) ) {
-			return false;
+			return;
 		}
 
 		/* Prepare the dismiss URL */
@@ -451,8 +452,13 @@ class AS_Boilerplate_Loader {
 	 * Add license warning in the plugin meta row
 	 *
 	 * @since 0.1.0
+	 *
+	 * @param array  $plugin_meta The current plugin meta row
+	 * @param string $plugin_file The plugin file path
+	 *
+	 * @return array Updated plugin meta
 	 */
-	public function license_notice_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
+	public function license_notice_meta( $plugin_meta, $plugin_file ) {
 
 		$license   = wpas_get_option( "license_{$this->slug}", '' );
 
