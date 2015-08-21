@@ -220,7 +220,7 @@ class AS_Boilerplate_Loader {
 	protected function plugin_data( $data ) {
 
 		if ( ! function_exists( 'get_plugin_data' ) ) {
-			$admin_path = str_replace( get_bloginfo( 'url' ) . '/', ABSPATH, get_admin_url() );
+			$admin_path = str_replace( get_site_url() . '/', ABSPATH, get_admin_url() );
 			require_once( $admin_path . 'includes/plugin.php' );
 		}
 
