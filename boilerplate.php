@@ -6,12 +6,12 @@
  * @link      http://themeavenue.net
  * @copyright 2014 ThemeAvenue
  * 
- * @boilerplate-version   0.1.2
+ * @boilerplate-version   0.1.3
  *
  * Plugin Name:       Awesome Support: Boilerplate
  * Plugin URI:        http://getawesomesupport.com/addons/?utm_source=internal&utm_medium=plugin_meta&utm_campaign=Addons_Boilerplate
  * Description:       A boilerplate for creating add-ons for Awesome Support.
- * Version:           0.1.0
+ * Version:           1.0
  * Author:            ThemeAvenue
  * Author URI:        http://themeavenue.net/?utm_source=internal&utm_medium=plugin_meta&utm_campaign=Addons_Boilerplate
  * Text Domain:       as-boilerplate
@@ -47,6 +47,20 @@ add_action( 'plugins_loaded', array( 'AS_Boilerplate_Loader', 'get_instance' ) )
  * @return void
  */
 class AS_Boilerplate_Loader {
+
+	/**
+	 * ID of the item.
+	 *
+	 * The item ID must match teh post ID on the e-commerce site.
+	 * Using the item ID instead of its name has the huge advantage of
+	 * allowing changes in the item name.
+	 *
+	 * If the ID is not set the class will fall back on the plugin name instead.
+	 *
+	 * @since 0.1.3
+	 * @var int
+	 */
+	protected $item_id;
 
 	/**
 	 * Required version of the core.
@@ -397,6 +411,7 @@ class AS_Boilerplate_Loader {
 			'default'   => '',
 			'server'    => esc_url( 'http://getawesomesupport.com' ),
 			'item_name' => $plugin_name,
+			'item_id'   => '',
 			'file'      => __FILE__
 		);
 
