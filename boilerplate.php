@@ -6,7 +6,7 @@
  * @link      http://themeavenue.net
  * @copyright 2014 ThemeAvenue
  * 
- * @boilerplate-version   0.1.1
+ * @boilerplate-version   0.1.2
  *
  * Plugin Name:       Awesome Support: Boilerplate
  * Plugin URI:        http://getawesomesupport.com/addons/?utm_source=internal&utm_medium=plugin_meta&utm_campaign=Addons_Boilerplate
@@ -24,14 +24,6 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-
-/*----------------------------------------------------------------------------*
- * Shortcuts
- *----------------------------------------------------------------------------*/
-
-define( 'AS_BP_VERSION', '0.1.0' );
-define( 'AS_BP_URL',     trailingslashit( plugin_dir_url( __FILE__ ) ) );
-define( 'AS_BP_PATH',    trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /*----------------------------------------------------------------------------*
  * Instantiate the plugin
@@ -111,6 +103,7 @@ class AS_Boilerplate_Loader {
 	protected $error = null;
 
 	public function __construct() {
+		$this->declare_constants();
 		$this->init();
 	}
 
@@ -138,6 +131,12 @@ class AS_Boilerplate_Loader {
 	 */
 	public function scope() {
 		return $this->addon;
+	}
+
+	public function declare_constants() {
+		define( 'AS_BP_VERSION', '0.1.0' );
+		define( 'AS_BP_URL',     trailingslashit( plugin_dir_url( __FILE__ ) ) );
+		define( 'AS_BP_PATH',    trailingslashit( plugin_dir_path( __FILE__ ) ) );
 	}
 
 	/**
