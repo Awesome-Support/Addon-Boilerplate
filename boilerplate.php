@@ -209,8 +209,11 @@ class AS_Boilerplate_Loader {
 		 * Add the addon license field
 		 */
 		if ( is_admin() ) {
+
+			// Add the license admin notice
+			$this->add_license_notice();
+			
 			add_filter( 'wpas_addons_licenses', array( $this, 'addon_license' ),       10, 1 );
-			add_action( 'admin_notices',        array( $this, 'license_notice' ),      10, 0 );
 			add_filter( 'plugin_row_meta',      array( $this, 'license_notice_meta' ), 10, 4 );
 		}
 
@@ -424,7 +427,7 @@ class AS_Boilerplate_Loader {
 	 * @since 0.1.0
 	 * @return void
 	 */
-	public function license_notice() {
+	public function add_license_notice() {
 
 		/**
 		 * We only want to display the notice to the site admin.
@@ -433,14 +436,7 @@ class AS_Boilerplate_Loader {
 			return;
 		}
 
-		/**
-		 * If the notice has already been dismissed we don't display it again.
-		 */
-		if ( wpas_is_notice_dismissed( "license_{$this->slug}" ) ) {
-			return;
-		}
-
-		$license   = wpas_get_option( "license_{$this->slug}", '' );
+		$license = wpas_get_option( "license_{$this->slug}", '' );
 
 		/**
 		 * Do not show the notice if the license key has already been entered.
@@ -449,18 +445,10 @@ class AS_Boilerplate_Loader {
 			return;
 		}
 
-		/* Prepare the dismiss URL */
-		$args                 = $_GET;
-		$args['wpas-dismiss'] = 'license_' . $this->slug;
-		$url                  = wpas_nonce_url( add_query_arg( $args, '' ) );
-		$license_page         = add_query_arg( array( 'post_type' => 'ticket', 'page' => 'settings', 'tab' => 'licenses' ), admin_url( 'edit.php' ) ); ?>
+		$link = wpas_get_settings_page_url( 'licenses' );
+		WPAS()->admin_notices->add_notice( 'error', "lincense_{$this->slug}", sprintf( __( 'Please <a href="%s">fill-in your product license</a> now. If you don\'t, your copy of the plugin <strong>will never be updated</strong>.', 'wpbp' ), $link ) );
 
-		<div class="updated error">
-			<p><?php printf( __( 'Please <a href="%s">fill-in your product license</a> now. If you don\'t, your copy of the plugin <strong>will never be updated</strong>.', 'wpbp' ), $license_page ); ?>
-			<a href="<?php echo $url; ?>"><small>(<?php _e( 'I do NOT want the updates, dismiss this message', 'wpbp' ); ?>)</small></a></p>
-		</div>
-
-	<?php }
+	}
 
 	/**
 	 * Add license warning in the plugin meta row
