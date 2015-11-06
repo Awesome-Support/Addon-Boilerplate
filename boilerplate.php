@@ -212,7 +212,7 @@ class AS_Boilerplate_Loader {
 
 			// Add the license admin notice
 			$this->add_license_notice();
-			
+
 			add_filter( 'wpas_addons_licenses', array( $this, 'addon_license' ),       10, 1 );
 			add_filter( 'plugin_row_meta',      array( $this, 'license_notice_meta' ), 10, 4 );
 		}
@@ -414,7 +414,7 @@ class AS_Boilerplate_Loader {
 			'default'   => '',
 			'server'    => esc_url( 'http://getawesomesupport.com' ),
 			'item_name' => $plugin_name,
-			'item_id'   => '',
+			'item_id'   => $this->item_id,
 			'file'      => __FILE__
 		);
 
