@@ -4,9 +4,9 @@
  * @author    ThemeAvenue <web@themeavenue.net>
  * @license   GPL-2.0+
  * @link      http://themeavenue.net
- * @copyright 2014 ThemeAvenue
+ * @copyright 2015 ThemeAvenue
  * 
- * @boilerplate-version   0.1.3
+ * @boilerplate-version   0.1.4
  *
  * Plugin Name:       Awesome Support: Boilerplate
  * Plugin URI:        http://getawesomesupport.com/addons/?utm_source=internal&utm_medium=plugin_meta&utm_campaign=Addons_Boilerplate
@@ -73,7 +73,7 @@ class AS_Boilerplate_Loader {
 	 * @since  0.1.0
 	 * @var    string
 	 */
-	protected $version_required = '3.1.6';
+	protected $version_required = '3.2.5';
 
 	/**
 	 * Required version of PHP.
@@ -424,7 +424,7 @@ class AS_Boilerplate_Loader {
 	/**
 	 * Display notice if user didn't set his Envato license code
 	 *
-	 * @since 0.1.0
+	 * @since 0.1.4
 	 * @return void
 	 */
 	public function add_license_notice() {
