@@ -236,13 +236,22 @@ class AS_Boilerplate_Loader {
 	protected function plugin_data( $data ) {
 
 		if ( ! function_exists( 'get_plugin_data' ) ) {
-			$admin_path = str_replace( get_site_url() . '/', ABSPATH, get_admin_url() );
+			
+			$site_url = get_site_url() . '/';
+
+			if ( defined( 'FORCE_SSL_ADMIN' ) && FORCE_SSL_ADMIN && 'http://' === substr( $site_url, 0, 7 ) ) {
+				$site_url = str_replace( 'http://', 'https://', $site_url );
+			}
+
+			$admin_path = str_replace( $site_url, ABSPATH, get_admin_url() );
+
 			require_once( $admin_path . 'includes/plugin.php' );
+			
 		}
 
 		$plugin = get_plugin_data( __FILE__, false, false );
 
-		if ( array_key_exists( $data, $plugin ) ){
+		if ( array_key_exists( $data, $plugin ) ) {
 			return $plugin[$data];
 		} else {
 			return '';
