@@ -8,7 +8,7 @@ The boilerplate should be used for all addons as it is uses a specific method to
 
 ## Configuration
 
-There is nothing much needed. Just rename the class and change the addon name. There is a more extensive list of what you could be changed directly at the top of the boilerplate.php file.
+There is nothing much needed. Just rename the class and change the addon name. There is a more extensive list of what could be changed directly at the top of the boilerplate.php file.
 
 ## Usage
 
