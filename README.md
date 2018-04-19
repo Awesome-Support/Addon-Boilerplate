@@ -19,24 +19,24 @@ Your code should be placed in the `load` method. The easiest approach is to have
 ### Change Log
 -----------------------------------------------------------------------------------------
 ###### Version 2.0.0
-New: Use new base extension class that is in version 5.x of Awesome Support core.
-New: Include change log in this read me file
-New: Include some instructions directly at the top of the main class file (boilerplate.php)
+* New: Use new base extension class that is in version 5.x of Awesome Support core.
+* New: Include change log in this read me file
+* New: Include some instructions directly at the top of the main class file (boilerplate.php)
+
+-----------------------------------------------------------------------------------------
+###### Version 1.4.0
+* Fix: Updated minimum compatibility levels for some items
+* New: Implement option to Set item id 
+* New: Use core classes to display messages
+* New: Use product id for updates instead of name
+* Tweak: Move constants inside of class
+* Fix: Issues with installation subdirectory
+* Tweak: Update usage instructions
+* Fix: Styling issues and typos
+
 
 -----------------------------------------------------------------------------------------
 ###### Version 1.0.0
-Fix: Updated minimum compatibility levels for some items
-New: Implement option to Set item id 
-New: Use core classes to display messages
-New: Use product id for updates instead of name
-Tweak: Move constants inside of class
-Fix: Issues with installation subdirectory
-Tweak: Update usage instructions
-Fix: Styling issues and typos
-
-
------------------------------------------------------------------------------------------
-###### Version 1.0.0
-Initial Commit
+* Initial Commit
 
 -----------------------------------------------------------------------------------------
